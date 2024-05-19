@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Sin errores') {
+            steps {
+                echo 'Esta fase se ejecuta correctamente'
+            }
+        }
+
+        stage('Con errores') {
+            steps {
+                // la Pipeline falla porque el comando no existe
+                sh 'uncomandoquenoexiste'
+                sh 'cat archivo.txt'
+            }
+        }
+
+        stage('Otra fase sin errores') {
+            steps {
+                echo 'Nunca se llega a ejecutar esta fase'
+            }
+        }
+    }
+}

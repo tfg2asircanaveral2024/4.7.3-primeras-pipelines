@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+        stage('Limpiar Workspace') {
+            steps {
+                // si estuviéramos descargando un repositorio este paso no sería necesario
+                sh 'rm *'
+            }
+        }
+
         stage('Primera linea') {
             steps {
                 sh 'echo "Primera linea del archivo" > archivo.txt'
