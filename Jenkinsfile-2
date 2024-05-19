@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Primera linea') {
+            steps {
+                sh 'echo "Primera linea del archivo" > archivo.txt'
+            }
+        }
+
+        stage('Segunda linea') {
+            steps {
+                sh 'echo "Segunda linea del archivo" >> archivo.txt'
+                sh 'cat archivo.txt'
+            }
+        }
+    }
+}
