@@ -12,13 +12,13 @@ pipeline {
             steps {
                 // la Pipeline falla porque el comando no existe
                 sh 'uncomandoquenoexiste'
-                sh 'cat archivo.txt'
+                echo 'Este paso no se llega a ejecutar nunca'
             }
         }
 
         stage('Otra fase sin errores') {
             steps {
-                echo 'Nunca se llega a ejecutar esta fase'
+                echo 'Tampoco se llega a ejecutar esta fase'
             }
         }
     }
